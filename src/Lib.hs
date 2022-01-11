@@ -22,3 +22,8 @@ someFunc = do
   case parsed of
     Right dimacs -> print $ show $ solveDIMACS dimacs
     left -> print "Error!"
+
+  parsed <- parseDIMACSFromFile "resources/problems/add4.cnf"
+  case parsed of
+    Right dimacs -> print $ show $ solveDIMACS dimacs
+    left -> print "Error!"
