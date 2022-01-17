@@ -69,6 +69,7 @@ test-suite frost-test-timed
   type: exitcode-stdio-1.0
   main-is: Test.hs
   other-modules:
+      TestData
       Paths_frost
   hs-source-dirs:
       src/test/timed
