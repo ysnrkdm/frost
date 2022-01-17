@@ -61,11 +61,12 @@ solve f = dpll $ SolverState f []
 
 intsFromClause :: [Integer] -> Dimacs.Clause -> [Integer]
 intsFromClause s (Dimacs.Clause []) = s
+intsFromClause s Dimacs.EmptyClause = s
 intsFromClause s (Dimacs.UnitClause x) = intsFromClause s (Dimacs.Clause [x])
 intsFromClause s (Dimacs.Clause (x : r)) =
   case x of
     Dimacs.Not (Dimacs.Var i) -> intsFromClause ((- (fromIntegral i)) : s) (Dimacs.Clause r)
-    Dimacs.Normal (Dimacs.Var i) -> intsFromClause (((fromIntegral i)) : s) (Dimacs.Clause r)
+    Dimacs.Normal (Dimacs.Var i) -> intsFromClause (fromIntegral i : s) (Dimacs.Clause r)
 
 intsFromCnf :: Dimacs.CNF -> [[Integer]]
 intsFromCnf (Dimacs.CNF cnf) =
