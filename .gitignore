@@ -22,3 +22,6 @@ cabal.project.local~
 .HTF/
 .ghc.environment.*
 .DS_Store
+
+# too big to add
+resources/benchmark_2021/
