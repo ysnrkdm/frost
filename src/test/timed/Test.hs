@@ -1,5 +1,5 @@
 import Dimacs (parseDIMACSFromFile)
-import Internal.Sat (solveDIMACS)
+import Internal.Dpll (solveDIMACS)
 import Sat (solve)
 import System.Timeout (timeout)
 import Test.Framework (defaultMain)

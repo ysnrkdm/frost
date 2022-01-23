@@ -25,7 +25,8 @@ source-repository head
 library
   exposed-modules:
       Dimacs
-      Internal.Sat
+      Internal.Cdcl
+      Internal.Dpll
       Lib
       Sat
   other-modules:
@@ -34,6 +35,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , containers
     , parsec
   default-language: Haskell2010
 
@@ -46,6 +48,7 @@ executable frost-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
     , frost
     , parsec
   default-language: Haskell2010
@@ -59,10 +62,31 @@ test-suite frost-test
       src/test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      HUnit
+    , base >=4.7 && <5
+    , containers
     , frost
     , parsec
-    , tasty
+    , test-framework
+    , test-framework-hunit
+  default-language: Haskell2010
+
+test-suite frost-test-functional
+  type: exitcode-stdio-1.0
+  main-is: Test.hs
+  other-modules:
+      Paths_frost
+  hs-source-dirs:
+      src/test/functional
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , containers
+    , frost
+    , parsec
+    , test-framework
+    , test-framework-hunit
   default-language: Haskell2010
 
 test-suite frost-test-timed
@@ -77,6 +101,7 @@ test-suite frost-test-timed
   build-depends:
       HUnit
     , base >=4.7 && <5
+    , containers
     , frost
     , parsec
     , test-framework
@@ -94,6 +119,7 @@ benchmark frost-benchmark
   build-depends:
       HUnit
     , base >=4.7 && <5
+    , containers
     , criterion
     , frost
     , parsec

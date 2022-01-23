@@ -5,4 +5,4 @@ module Sat
 where
 
 -- friends
-import Internal.Sat
+import Internal.Dpll

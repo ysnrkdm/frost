@@ -4,8 +4,7 @@ module Lib
 where
 
 import Dimacs (parseDIMACSFromFile)
-import Internal.Sat (solveDIMACS)
-import Sat (solve)
+import Sat (solve, solveDIMACS)
 
 someFunc :: IO ()
 someFunc = do

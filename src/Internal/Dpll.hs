@@ -1,4 +1,4 @@
-module Internal.Sat where
+module Internal.Dpll where
 
 import Control.Monad ()
 import Data.Maybe (listToMaybe)
