@@ -4,7 +4,7 @@ import Control.Monad ()
 import qualified Data.IntMap as IntMap
 import Data.List (foldl', nub, sort, (\\))
 import Data.Maybe (listToMaybe)
-import Debug.Trace
+import Debug.Trace (trace)
 import qualified Dimacs
 
 type Literal = Integer
